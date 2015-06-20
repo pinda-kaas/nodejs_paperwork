@@ -8,7 +8,15 @@ var methodOverride = require('method-override')
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
+
+app.use(function(err, req, res, next){
+   console.log(err);
+    res.send(err);
+});
+// logic
+// }); after app.use(bodyParser());
+
 app.use(methodOverride());
 
 // routes ======================================================================

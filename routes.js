@@ -1,20 +1,14 @@
-var paperwork = require('paperwork');
+var bodyParser = require('body-parser')
 
 module.exports = function (app) {
-    var blogPostTemplate = {
-        article_id: Number
-    };
-    app.post('/api/postding', function (req, res) {
 
-        paperwork(blogPostTemplate, req.body, function (err, validated) {
-            if (err) {
-                // err is the list of incorrect fields
-                console.error(err);
-            } else {
-                // JSON was validated, extra fields were removed.
-                console.log(req.body);
-            }
-        });
-    });
+    // POST /api/users gets JSON bodies
+    app.post('/api/postding',  function (req, res) {
+        if (!req.body)
+            res.send('inside post error');
+        else
+            res.send(req.body);
+
+    })
 
 }
