@@ -1,19 +1,20 @@
 // set up ======================================================================
-var express  = require('express');
-var app      = express();                               // create our app w/ express
-var port     = process.env.PORT || 8080;                // set the port
+var express = require('express');
+var app = express();                               // create our app w/ express
+var port = process.env.PORT || 8080;                // set the port
+
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     //the code hits this point!
     var data = '';
-    req.on('data', function(chunk) {
+    req.on('data', function (chunk) {
         data += chunk;
     });
-    req.on('end', function() {
+    req.on('end', function () {
         req.rawBody = data;
         next();
     });

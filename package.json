@@ -4,6 +4,7 @@
   "dependencies": {
     "fs": "0.0.2",
     "jsonschema": "^1.0.1",
-    "method-override": "^2.3.3"
+    "method-override": "^2.3.3",
+    "underscore": "^1.8.3"
   }
 }
